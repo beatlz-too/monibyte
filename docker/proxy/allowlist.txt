@@ -1,0 +1,6 @@
+# Model APIs reachable from run containers. One anchored regex per line.
+# Claude Code
+^api\.anthropic\.com$
+# Codex (API key and ChatGPT login)
+^api\.openai\.com$
+^chatgpt\.com$

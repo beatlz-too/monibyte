@@ -1,0 +1,19 @@
+# Isolation network: run containers join `monibyte-sealed`, which has no route out.
+# The proxy is the only bridge to the internet and only lets allowlisted model APIs through.
+name: monibyte
+
+services:
+  proxy:
+    build: ./proxy
+    image: monibyte/proxy
+    restart: unless-stopped
+    networks:
+      - sealed
+      - egress
+
+networks:
+  sealed:
+    name: monibyte-sealed
+    internal: true
+  egress:
+    name: monibyte-egress
